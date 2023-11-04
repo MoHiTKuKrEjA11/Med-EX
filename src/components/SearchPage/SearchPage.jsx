@@ -10,7 +10,7 @@ const SearchPage = () => {
   const [suggestedItems, setSuggestedItems] = useState([]);
 
   const navigate = useNavigate();
-  
+
   const handleSearch = () => {
     const searchTerms = searchQuery.split(',').map(term => term.trim().toLowerCase());
     const filtered = items.filter((item) => {
@@ -48,13 +48,21 @@ const SearchPage = () => {
       <div className='search-ul'>
         {searchQuery === '' ? (
           items.map((item) => (
-            <span className='search-span' key={item.id}>{item.name}</span>
+            <div className='search-span' key={item.id}>
+              <div>
+                <img src={item.imgId} alt="Image" className='search-image' />
+                {item.name}
+              </div>
+            </div>
           ))
         ) : (
           filteredItems.map((item) => (
-            <span className='search-span' key={item.id} onClick={() => navigate('/hdetails')}>
-              {item.name}
-            </span>
+            <div className='search-span' key={item.id}>
+              <div>
+                <img src={item.imgId} alt="Image" className='search-image' />
+                {item.name}
+              </div>
+            </div>
           ))
         )}
       </div>
