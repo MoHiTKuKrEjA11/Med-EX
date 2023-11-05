@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { items } from './data';
 import './SearchPage.css'
 import { useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 const SearchPage = () => {
+
+ 
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredItems, setFilteredItems] = useState([]);
   const [searchMessage, setSearchMessage] = useState('');
@@ -11,9 +14,12 @@ const SearchPage = () => {
 
   const navigate = useNavigate();
 
+  
+
   const handleSearch = () => {
     const searchTerms = searchQuery.split(',').map(term => term.trim().toLowerCase());
     const filtered = items.filter((item) => {
+      
       const itemName = item.name.toLowerCase();
       return searchTerms.some(term => itemName.includes(term));
     });
@@ -49,9 +55,16 @@ const SearchPage = () => {
         {searchQuery === '' ? (
           items.map((item) => (
             <div className='search-span' key={item.id}>
-              <div>
+              <div className='search-span-in'>
                 <img src={item.imgId} alt="Image" className='search-image' />
+                <br />
                 {item.name}
+                <br />
+                {item.address}
+                <br />
+                {item.contact}
+                
+              <button className={`search-btn`} onClick={()=>{navigate('/hdet',{state:{ide:item.id}})}}>View More</button>
               </div>
             </div>
           ))
@@ -61,6 +74,12 @@ const SearchPage = () => {
               <div>
                 <img src={item.imgId} alt="Image" className='search-image' />
                 {item.name}
+                <br />
+                {item.address}
+                <br />
+                {item.contact}
+
+                <button className={`search-btn`} onClick={()=>{navigate('/hdet',{state:{ide:item.id}})}}>View More</button>
               </div>
             </div>
           ))

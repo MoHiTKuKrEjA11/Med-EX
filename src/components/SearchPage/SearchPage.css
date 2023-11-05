@@ -75,3 +75,10 @@ h1 {
   width: 100%;
   height: 8rem;
 }
+.search-span-in{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5 rem;
+}

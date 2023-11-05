@@ -12,9 +12,11 @@ function App() {
     <Router>
       <Navbar/>
       <Hero/>
-      <SearchPage/>
+      {/* <Hdetails/> */}
+      {/* <SearchPage/> */}
       <Routes>
-        <Route exact path='/hdetails' element={<Hdetails />} />
+        <Route exact path='/hdet' element={<Hdetails />} />
+        <Route exact path='/' element={<SearchPage />} />
       </Routes>
     </Router>
   )
