@@ -1,4 +1,4 @@
-# Medvita
+# Med-eX
 **Problem Statement:-**
 
 Time is a precious and finite resource that governs our lives. It reminds us of the fleeting nature of existence and the need to make the most of every moment.
